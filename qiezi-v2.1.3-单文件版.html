@@ -751,6 +751,20 @@
     .od-lc__fee-item b { font-size: 13.5px; font-weight: 700; color: #2c313a; }
     .od-lc__fee-item:last-child b { color: #087d8d; }
 
+    /* 列表卡道具明细：逐项列出道具类型 / 数量 / 单价（本次新增） */
+    .od-lc__items {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px;
+      margin-top: 10px; padding: 9px 12px;
+      border: 1px dashed #7fd6cd; border-radius: var(--radius-sm);
+      background: #f2fbfa;
+    }
+    .od-lc__items-cap {
+      font-size: 10.5px; font-weight: 700; color: #fff; background: #12a89b;
+      padding: 1px 7px; border-radius: 8px;
+    }
+    .od-lc__item { font-size: 12.5px; color: #6b7280; }
+    .od-lc__item b { font-weight: 700; color: #2c313a; margin-right: 4px; }
+
     /* 订单详情：左导航 */
     .od-page { display: grid; grid-template-columns: 196px 1fr; gap: 16px; align-items: start; }
     .od-nav { background: #fff; border: 1px solid var(--page-border); border-radius: var(--radius-md); padding: 8px; }
@@ -2054,10 +2068,19 @@
                         <span class="od-lc__fee-item">押金<b>¥ 160.00</b></span>
                         <span class="od-lc__fee-item">比例<b>1:1.35</b></span>
                       </div>
+                      <div class="od-lc__items">
+                        <span class="od-lc__items-cap">道具明细</span>
+                        <span class="od-lc__item"><b>awm子弹</b>20 发 · ¥0.8/发</span>
+                        <span class="od-lc__item"><b>六头</b>2 个 · ¥1.5/个</span>
+                        <span class="od-lc__item"><b>六甲</b>2 个 · ¥2.5/个</span>
+                        <span class="od-lc__item"><b>红弹</b>1 组 · ¥8.00/组</span>
+                        <span class="od-lc__item"><b>3*3体验卡</b>2 张 · ¥4.00/张</span>
+                        <span class="od-lc__item"><b>巴雷特</b>0 组 · ¥8.00/组</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <p class="pf-note">卖家侧方案：列表卡沿用买家侧同一套骨架与费用行样式，列头由"订单金额 (含押金)"改为"到手金额"；费用行展示<b>到手价 / 押金 / 比例</b>三项——<b>不含租金与总付</b>（总付是买家实付口径，不属于卖家收入视角）。</p>
+                <p class="pf-note">卖家侧方案：列表卡沿用买家侧同一套骨架与费用行样式，列头由"订单金额 (含押金)"改为"到手金额"；费用行展示<b>到手价 / 押金 / 比例</b>三项——<b>不含租金与总付</b>（总付是买家实付口径，不属于卖家收入视角）；下方<b>道具明细</b>按道具类型逐项列出数量与单价，与买家侧同一份数据。</p>
 
                 <p class="pf-cap" style="margin-top:22px;">www 站 · 卖家侧订单详情（青色虚框为本次新增）</p>
                 <div class="od-page">
@@ -2110,15 +2133,26 @@
                     <div class="od-row"><span class="od-row__label">商品类型</span><span class="od-row__value">资源号租赁</span></div>
                     <div class="od-newgroup">
                       <span class="od-newtag">本次新增</span>
-                      <div class="od-row"><span class="od-row__label" style="width: 110px; height: 47.25px;">到手价</span><span class="od-row__value">¥ 2.00</span></div>
+                      <div class="od-row"><span class="od-row__label">到手价</span><span class="od-row__value">¥ 2.00</span></div>
                       <div class="od-row"><span class="od-row__label">押金</span><span class="od-row__value">¥ 160.00</span></div>
                       <div class="od-row"><span class="od-row__label">比例</span><span class="od-row__value">1:38</span></div>
+                      <div class="od-row od-row--stack">
+                        <span class="od-row__label">道具明细</span>
+                        <div class="od-items">
+                          <div class="od-item"><span class="od-item__name">awm子弹</span><span class="od-item__num">20 发</span><span class="od-item__price">¥0.8 / 发</span></div>
+                          <div class="od-item"><span class="od-item__name">六头</span><span class="od-item__num">2 个</span><span class="od-item__price">¥1.5 / 个</span></div>
+                          <div class="od-item"><span class="od-item__name">六甲</span><span class="od-item__num">2 个</span><span class="od-item__price">¥2.5 / 个</span></div>
+                          <div class="od-item"><span class="od-item__name">红弹</span><span class="od-item__num">1 组</span><span class="od-item__price">¥8.00 / 组</span></div>
+                          <div class="od-item"><span class="od-item__name">3*3体验卡</span><span class="od-item__num">2 张</span><span class="od-item__price">¥4.00 / 张</span></div>
+                          <div class="od-item"><span class="od-item__name">巴雷特</span><span class="od-item__num">0 组</span><span class="od-item__price">¥8.00 / 组</span></div>
+                        </div>
+                      </div>
                     </div>
 
                     <button type="button" class="od-back">返回列表</button>
                   </div>
                 </div>
-                <p class="pf-note">卖家侧详情方案：与买家侧同构——左导航、四张指标卡、订单信息纵向文本行，仅两处差异：第 2 张指标卡为<b>「到手金额」</b>（买家侧为「订单金额」），订单信息区新增<b>到手价 / 押金 / 比例</b>三行。卖家侧不展示优惠券（优惠券由买家领取与抵扣，不属于卖家视角）。</p>
+                <p class="pf-note">卖家侧详情方案：与买家侧同构——左导航、四张指标卡、订单信息纵向文本行，仅两处差异：第 2 张指标卡为<b>「到手金额」</b>（买家侧为「订单金额」），订单信息区新增<b>到手价 / 押金 / 比例</b>三行与<b>道具明细</b>（按道具类型逐项列出数量与单价，与买家侧同一份数据）。卖家侧不展示优惠券（优惠券由买家领取与抵扣，不属于卖家视角）。</p>
 
               </div>
 
@@ -2230,11 +2264,20 @@
                       <div class="odm-row"><span class="odm-row__label">到手价：</span>¥ 2.00</div>
                       <div class="odm-row"><span class="odm-row__label">押金：</span>¥ 160.00</div>
                       <div class="odm-row"><span class="odm-row__label">比例：</span>1:1.35</div>
+                      <div class="odm-items">
+                        <div class="odm-items__cap">道具明细</div>
+                        <div class="odm-item"><span class="odm-item__name">awm子弹</span><span class="odm-item__num">20 发</span><span class="odm-item__price">¥0.8 / 发</span></div>
+                        <div class="odm-item"><span class="odm-item__name">六头</span><span class="odm-item__num">2 个</span><span class="odm-item__price">¥1.5 / 个</span></div>
+                        <div class="odm-item"><span class="odm-item__name">六甲</span><span class="odm-item__num">2 个</span><span class="odm-item__price">¥2.5 / 个</span></div>
+                        <div class="odm-item"><span class="odm-item__name">红弹</span><span class="odm-item__num">1 组</span><span class="odm-item__price">¥8.00 / 组</span></div>
+                        <div class="odm-item"><span class="odm-item__name">3*3体验卡</span><span class="odm-item__num">2 张</span><span class="odm-item__price">¥4.00 / 张</span></div>
+                        <div class="odm-item"><span class="odm-item__name">巴雷特</span><span class="odm-item__num">0 组</span><span class="odm-item__price">¥8.00 / 组</span></div>
+                      </div>
                     </div>
                     <div class="odm-back">返回列表</div>
                   </div>
                 </div>
-                <p class="pf-note">m 站卖家侧方案：与 m 站买家侧同一套骨架（页内分段、指标卡 2 × 2、纵向文本行），仅第 2 张指标卡改为「到手金额」，订单信息区新增到手价 / 押金 / 比例三行；卖家侧不展示优惠券。</p>
+                <p class="pf-note">m 站卖家侧方案：与 m 站买家侧同一套骨架（页内分段、指标卡 2 × 2、纵向文本行），仅第 2 张指标卡改为「到手金额」，订单信息区新增到手价 / 押金 / 比例三行与道具明细（窄屏下单列纵向铺开）；卖家侧不展示优惠券。</p>
               </div>
               
             </div>
